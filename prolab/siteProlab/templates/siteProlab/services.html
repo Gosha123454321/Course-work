@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="service-container">
+    <h1 class="services-title">Наши услуги</h1>
+
+    <div class="filters-container">
+        <div class="filters-scroll">
+            <button class="filter-btn active" onclick="filterServices('all')">Все процедуры</button>
+            {% for category in categories %}
+                <button class="filter-btn" onclick="filterServices('{{ category }}')">{{ category }}</button>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="services-grid">
+        {% for service in services %}
+        <div class="service-card" data-category="{{ service.type_ser }}">
+            <div class="service-header">
+                <h3>{{ service.title_ser }}</h3>
+                <span class="price">{{ service.price_ser }} ₽</span>
+            </div>
+            <div class="service-body">
+                <p class="category">{{ service.type_ser }}</p>
+                <p class="description">{{ service.content_ser }}</p>
+                <div class="status-controls">
+                    <div class="status {% if service.is_published_ser %}available{% else %}unavailable{% endif %}">
+                        {% if service.is_published_ser %}✓ Доступно{% else %}✕ Недоступно{% endif %}
+                    </div>
+                    {% if user.is_staff %}
+                    <div class="admin-buttons">
+                        <form method="post" action="{% url 'toggle_service_status' service.id %}" class="toggle-status-form">
+                            {% csrf_token %}
+                            <button type="submit" class="toggle-btn">
+                                {% if service.is_published_ser %}
+                                    Скрыть
+                                {% else %}
+                                    Допустить
+                                {% endif %}
+                            </button>
+                        </form>
+                        <form method="post" action="{% url 'delete_service' service.id %}" class="delete-form">
+                            {% csrf_token %}
+                            <button type="submit" class="toggle-btn" onclick="return confirm('Вы точно хотите удалить эту услугу?')">
+                                Удалить
+                            </button>
+                        </form>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

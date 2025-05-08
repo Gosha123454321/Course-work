@@ -1,0 +1,137 @@
+.masters-page {
+    font-family: 'Montserrat', sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.masters-header {
+    color: #4D4D60;
+    text-align: center;
+    padding: 0px 0;
+    font-size: 24px;
+    margin: 20px 0px 40px 0px;
+    border-radius: 20px;
+}
+
+.masters-header h1 {
+    text-align: center;
+    margin: 0 0 10px 0;
+    font-size: 32px;
+    font-weight: bold;
+    color: #E787B5;
+}
+
+.masters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.master-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.master-card:hover {
+    transform: translateY(-10px);
+}
+
+.master-photo {
+    height: 400px;
+    overflow: hidden;
+}
+
+.master-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.master-info {
+    padding: 20px;
+}
+
+.master-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    color: #222;
+}
+
+.content {
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.position {
+    color: #E787B5;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.studio {
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.services {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.service-tag {
+    background: #f5f5f5;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+}
+
+.delete-master-form {
+    margin-top: 15px;
+}
+
+.delete-btn {
+    padding: 8px 15px;
+    background-color: #ff4757;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.delete-btn:hover {
+    background-color: #ff6b81;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .masters-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .master-photo {
+        height: 300px;
+    }
+
+    .masters-header {
+        padding: 60px 0;
+    }
+
+    .masters-header h1 {
+        font-size: 2rem;
+    }
+}

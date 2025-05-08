@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% block content %}
+    <main>
+        <section class="slider-section">
+            <div class="slider-container">
+                <div class="slider">
+                    {% for slide in main_slider %}
+                        <img src="{{ slide.image.url }}" alt="Slide {{ forloop.counter }}" class="slide {% if forloop.first %}active{% endif %}">
+                    {% endfor %}
+                </div>
+                <button class="slider-arrow prev-arrow">&#10094;</button>
+                <button class="slider-arrow next-arrow">&#10095;</button>
+                <div class="slider-dots">
+                    {% for slide in main_slider %}
+                        <span class="dot {% if forloop.first %}active{% endif %}"></span>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="slogan-container">
+                <p>КОМПЛЕКСНЫЙ УХОД ЗА ЛИЦОМ И ТЕЛОМ</p>
+                <h1>МЕСТО, ГДЕ ВЫ РАЗРУШАЕТЕ ГРАНИЦЫ СВОЕЙ ВНЕШНОСТИ</h1>
+            </div>
+        </section>
+
+        <section class="services-section">
+            <h2>Все виды услуг для вашей красоты</h2>
+            <p class="services-description">Лазерная эпиляция, косметология, ручной массаж, спа-программы и аппаратная коррекция фигуры в студиях Laser ProLab</p>
+            <div class="services-container">
+                <div class="service">
+                    <a href="{% url 'services' %}">
+                        <img src="../static/siteProlab/img/lazer.jpg" alt="Лазерная эпиляция">
+                    </a>
+                    <p>Лазерная эпиляция</p>
+                </div>
+                <div class="service">
+                    <a href="{% url 'services' %}">
+                        <img src="../static/siteProlab/img/kosmetolog.jpg" alt="Косметология">
+                    </a>
+                    <p>Косметология</p>
+                </div>
+                <div class="service">
+                    <a href="{% url 'services' %}">
+                        <img src="../static/siteProlab/img/massage.jpg" alt="Ручной массаж и спа-программы">
+                    </a>
+                    <p>Ручной массаж и спа-программы</p>
+                </div>
+                <div class="service">
+                    <a href="{% url 'services' %}">
+                        <img src="../static/siteProlab/img/spa.png" alt="Коррекция фигуры">
+                    </a>
+                    <p>Коррекция фигуры</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="values-section">
+            <h2>ЦЕННОСТИ</h2>
+            <div class="values-container">
+                <div class="value">
+                    <h3>Любовь к себе и инклюзивность</h3>
+                    <p>Быть собой – удовольствие, доступное каждому. Наша цель — создавать пространства, где каждый может пополнить свои внутренние силы, принять себя и других, увидеть красоту в нашем многообразии.</p>
+                </div>
+                <div class="value">
+                    <h3>Внутренняя гармония</h3>
+                    <p>Раскройте секрет гармонии и баланса между эмоциональным и физическим состоянием. Мы твердо верим, что внутри каждого из нас есть чувство спокойствия и счастья.</p>
+                </div>
+                <div class="value">
+                    <h3>Индивидуальный подход</h3>
+                    <p>Каждый наш клиент уникален, поэтому все программы подбираются индивидуально с учетом особенностей кожи, личных предпочтений и задач, которые необходимо решить.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="studios-section">
+            <h2>НАШИ СТУДИИ</h2>
+            <div class="divider"></div> 
+            <div class="studios-slider">
+                <button class="studios-arrow studios-prev-arrow">&#10094;</button>
+                <div class="studios-slider-container">
+                    <div class="studios-slider-track">
+                        <div class="studios-slide">
+                            <img src="../static/siteProlab/img/studios/studios-slider1.jpg" alt="Студия 1">
+                        </div>
+                        <div class="studios-slide">
+                            <img src="../static/siteProlab/img/studios/studios-slider2.jpg" alt="Студия 2">
+                        </div>
+                        <div class="studios-slide">
+                            <img src="../static/siteProlab/img/studios/studios-slider3.jpg" alt="Студия 3">
+                        </div>
+                        <div class="studios-slide">
+                            <img src="../static/siteProlab/img/studios/studios-slider4.jpg" alt="Студия 4">
+                        </div>
+                        <div class="studios-slide">
+                            <img src="../static/siteProlab/img/studios/studios-slider5.jpg" alt="Студия 5">
+                        </div>
+                        <div class="studios-slide">
+                            <img src="../static/siteProlab/img/studios/studios-slider6.jpg" alt="Студия 6">
+                        </div>
+                        <div class="studios-slide">
+                            <img src="../static/siteProlab/img/studios/studios-slider7.jpg" alt="Студия 7">
+                        </div>
+                    </div>
+                </div>
+                <button class="studios-arrow studios-next-arrow">&#10095;</button>
+            </div>
+        </section>
+
+        <section class="reviews-section">
+            <div class="reviews-header">
+                <div class="reviews-arrows">
+                    <img src="../static/siteProlab/img/Arrow_otz_left.svg" alt="Стрелка влево" class="reviews-prev-arrow">
+                    <h2>ОТЗЫВЫ</h2>
+                    <img src="../static/siteProlab/img/Arrow_otz_right.svg" alt="Стрелка вправо" class="reviews-next-arrow">
+                </div>
+            </div>
+            <div class="reviews-slider">
+                <button class="slider-arrow reviews-mobile-prev-arrow">&#10094;</button>
+                <div class="reviews-slider-track">
+                    {% for review in reviews_slider %}
+                    <div class="reviews-slide">
+                        <img src="{{ review.image.url }}" alt="Отзыв {{ forloop.counter }}">
+                    </div>
+                    {% endfor %}
+                </div>
+                <button class="slider-arrow reviews-mobile-next-arrow">&#10095;</button>
+            </div>
+        </section>
+    </main>
+{% endblock %}

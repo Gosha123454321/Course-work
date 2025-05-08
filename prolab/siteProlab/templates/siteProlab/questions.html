@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="questions-container">
+    {% if user.is_staff and unanswered_count > 0 %}
+    <div class="admin-alert">
+        <div class="alert-content">
+            <span class="alert-icon">!</span>
+            <p>У вас <strong>{{ unanswered_count }}</strong> неотвеченных вопросов</p>
+            <a href="{% url 'admin:siteProlab_questions_changelist' %}" class="admin-link">Перейти к модерации</a>
+        </div>
+    </div>
+    {% endif %}
+
+    <h1 class="questions-title">Ответы на часто задаваемые вопросы о лазерной эпиляции и массаже</h1>
+
+    {% if user.is_authenticated %}
+    <button id="ask-question-btn" class="ask-question-btn">Задать вопрос</button>
+
+    <div id="question-modal" class="modal">
+        <div class="modal-content">
+            <form method="post" id="question-form">
+                {% csrf_token %}
+                {{ form.question }}
+                <button type="submit" class="submit-question-btn">Отправить вопрос</button>
+            </form>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if questions %}
+    <div class="questions-grid">
+        {% for question in questions %}
+        <div class="questions-card">
+            <div class="question-header">
+                <h2 class="question-name">{{ question.question }}</h2>
+            </div>
+            <div class="question-body">
+                <div class="question-description">{{ question.answer | linebreaks }}</div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

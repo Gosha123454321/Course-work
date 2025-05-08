@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="masters-page">
+    <section class="masters-header">
+        <div class="container">
+            <h1>Наши мастера</h1>
+            <p>Профессиональные специалисты с медицинским образованием</p>
+        </div>
+    </section>
+
+    <section class="masters-list">
+        <div class="container">
+            <div class="masters-grid">
+                {% for master in masters %}
+                <div class="master-card" data-studio="{{ master.studio_m }}">
+                    <div class="master-photo">
+                        <img src="{{ master.image_m.url }}" alt="{{ master.full_name_m }}">
+                    </div>
+                    <div class="master-info">
+                        <h3>{{ master.full_name_m }}</h3>
+                        <p class="content">{{ master.content_m }}</p>
+                        <p class="position">{{ master.position_m }}</p>
+                        <p class="studio">{{ master.studio_m }}</p>
+                        <div class="services">
+                            {% for service in master.services.all %}
+                            <span class="service-tag">{{ service.title_ser }}</span>
+                            {% endfor %}
+                        </div>
+                        {% if user.is_staff %}
+                        <form method="post" action="{% url 'delete_master' master.id %}" class="delete-master-form">
+                            {% csrf_token %}
+                            <button type="submit" class="delete-btn" onclick="return confirm('Вы точно хотите удалить этого мастера?')">
+                                Удалить мастера
+                            </button>
+                        </form>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

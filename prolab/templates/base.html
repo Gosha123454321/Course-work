@@ -1,0 +1,117 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" href="{% static 'siteProlab/css/reset.css' %}" rel="stylesheet"/>
+    <link type="text/css" href="{% static 'siteProlab/css/normalize.css' %}" rel="stylesheet"/>
+    <link type="text/css" href="{% static 'siteProlab/css/style.css' %}" rel="stylesheet"/>
+    <link type="text/css" href="{% static 'siteProlab/css/index.css' %}" rel="stylesheet"/>
+    <link type="text/css" href="{% static 'siteProlab/css/services.css' %}" rel="stylesheet"/>
+    <link type="text/css" href="{% static 'siteProlab/css/masters.css' %}" rel="stylesheet"/>
+    <link type="text/css" href="{% static 'siteProlab/css/questions.css' %}" rel="stylesheet"/>
+    <title>LaserProlab</title>
+</head>
+<body>
+    <header>
+        <div class="div-header">
+            <div class="header-1">
+                <div class="row">
+                    <div class="info-header">
+                        <img src="../static/siteProlab/img/phone.png" alt="icon_phone_header" class="icon_number_header">
+                        <p>+7 (921) 361-00-00</p>
+                        <img src="../static/siteProlab/img/profile.png" alt="icon_phone_header" class="icon_number_header">
+                        {% if user.is_authenticated %}
+                            <a href="{% url 'logout' %}" class="auth-link">Выйти</a>
+                        {% else %}
+                            <a href="{% url 'login' %}" class="auth-link">Войти</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-2">
+            <div class="navbar">
+                <a href="{% url 'home' %}" class="logo-link">
+                    <div class="logo-container">
+                        <img src="../static/siteProlab/img/logo_laserProLab.png" alt="Логотип" class="logo">
+                        <span class="company-name">LASER PROLAB</span>
+                    </div>
+                </a>
+
+                <button class="hamburger" aria-label="Menu" id="hamburger-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <nav class="nav-links">
+                    <a href="{% url 'services' %}">Услуги</a>
+                    <a href="{% url 'masters' %}">Мастера</a>
+                    <a href="{% url 'questions' %}">Вопросы</a>
+                </nav>
+                {% if user.is_authenticated %}
+                    <a href="#" class="signup-button">Запись</a>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="menu-overlay" id="menu-overlay"></div>
+        <div class="mobile-menu" id="mobile-menu">
+            <div class="logo-container">
+                <img src="../static/siteProlab/img/logo_laserProLab.png" alt="Логотип" class="logo">
+                <a href="{% url 'home' %}"><span class="company-name">LASER PROLAB</span></a>
+                <span class="company-opis">Студия лазерной эпиляции и массажа</span>
+            </div>
+            <p>+7 (921) 361-00-00</p>
+            {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}" class="auth-link">Выйти</a>
+            {% else %}
+                <a href="{% url 'login' %}" class="auth-link">Войти</a>
+            {% endif %}
+            <a href="{% url 'services' %}">Услуги</a>
+            <a href="{% url 'masters' %}">Мастера</a>
+            <a href="{% url 'questions' %}">Вопросы</a>
+            {% if user.is_authenticated %}
+                <a href="#" class="signup-button">Запись</a>
+            {% endif %}
+        </div>
+    </header>
+    {% block content %}{% endblock %}
+</body>
+<footer class="footer">
+    <div class="footer-top">
+        <div class="logo-container">
+            <img src="../static/siteProlab/img/logo_laserProLab.png" alt="Логотип" class="logo">
+            <span class="company-name">LASER PROLAB</span>
+            <span class="company-opis">Студия лазерной эпиляции и массажа</span>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="footer-map">
+        <div class="city-selector">
+            <select id="city-select">
+                <option value="chelyabinsk">Челябинск</option>
+                <option value="moscow">Москва</option>
+                <option value="saint-petersburg">Санкт-Петербург</option>
+            </select>
+        </div>
+        <div id="map" class="map"></div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="footer-social">
+        <a href="https://t.me/+zV5lQTquKdQ5YTAy" class="social-icon"><img src="../static/siteProlab/img/telegram-social.svg" alt="Telegram"></a>
+        <a href="https://vk.com/laserprolab" class="social-icon"><img src="../static/siteProlab/img/vk-social.svg" alt="VK"></a>
+    </div>
+</footer>
+
+<script src="../static/siteProlab/js/script.js"></script>
+<script src="../static/siteProlab/js/services.js"></script>
+<script src="../static/siteProlab/js/questions.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAah5f5wO-osD0C5lgfyjlYrrSdIVrpE6Q&callback=initMap" async defer></script>
+</html>
