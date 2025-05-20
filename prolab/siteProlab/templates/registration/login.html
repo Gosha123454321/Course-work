@@ -11,6 +11,12 @@
     <div class="center-container">
         <div class="auth-container">
             <h2>Вход в систему</h2>
+            {% if form.errors %}
+                <div class="alert-danger">
+                    Неправильное имя пользователя или пароль. Пожалуйста, попробуйте снова.
+                </div>
+            {% endif %}
+
             <form method="post">
                 {% csrf_token %}
 
