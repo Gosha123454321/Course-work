@@ -1,12 +1,12 @@
 const modal = document.getElementById("question-modal");
 const btn = document.getElementById("ask-question-btn");
-const span = document.getElementsByClassName("close")[0];
+const closeBtn = document.querySelector(".close-btn");
 
 btn.onclick = function() {
    modal.style.display = "block";
 }
 
-span.onclick = function() {
+closeBtn.onclick = function() {
    modal.style.display = "none";
 }
 

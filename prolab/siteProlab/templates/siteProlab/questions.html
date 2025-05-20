@@ -13,11 +13,12 @@
 
     <h1 class="questions-title">Ответы на часто задаваемые вопросы о лазерной эпиляции и массаже</h1>
 
-    {% if user.is_authenticated %}
+    {% if user.is_authenticated and not user.is_staff %}
     <button id="ask-question-btn" class="ask-question-btn">Задать вопрос</button>
 
     <div id="question-modal" class="modal">
         <div class="modal-content">
+            <span class="close-btn">&times;</span>
             <form method="post" id="question-form">
                 {% csrf_token %}
                 {{ form.question }}

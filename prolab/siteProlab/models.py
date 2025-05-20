@@ -24,7 +24,7 @@ class Questions(models.Model):
     is_published = models.BooleanField(default=False)
 
     class Meta:
-        ordering = ['id']
+        ordering = ['-id']
 
     def __str__(self):
         return f"Вопрос от {self.user.username if self.user else 'анонима'}: {self.question[:50]}..."

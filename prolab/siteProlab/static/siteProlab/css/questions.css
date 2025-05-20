@@ -80,6 +80,7 @@
 }
 
 .modal-content {
+    position: relative;
     background-color: #fff;
     margin: 10% auto;
     padding: 30px;
@@ -89,15 +90,18 @@
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-.close {
-    color: #aaa;
-    float: right;
+.close-btn {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    color: #E787B5;
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
+    transition: color 0.3s;
 }
 
-.close:hover {
+.close-btn:hover {
     color: #333;
 }
 
@@ -111,7 +115,7 @@
 }
 
 .submit-question-btn {
-    background-color: #d17b88;
+    background-color: #E787B5;
     color: white;
     padding: 10px 20px;
     border: none;
