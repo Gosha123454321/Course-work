@@ -11,6 +11,7 @@
     <link type="text/css" href="{% static 'siteProlab/css/services.css' %}" rel="stylesheet"/>
     <link type="text/css" href="{% static 'siteProlab/css/masters.css' %}" rel="stylesheet"/>
     <link type="text/css" href="{% static 'siteProlab/css/questions.css' %}" rel="stylesheet"/>
+    <link type="text/css" href="{% static 'siteProlab/css/soglasie.css' %}" rel="stylesheet"/>
     <title>LaserProlab</title>
 </head>
 <body>
@@ -96,20 +97,24 @@
         </div>
     </div>
 
-    <div class="divider"></div>
+    <hr>
 
-    <div class="footer-map">
-        <div class="city-selector">
-            <select id="city-select">
-                <option value="chelyabinsk">Челябинск</option>
-                <option value="moscow">Москва</option>
-                <option value="saint-petersburg">Санкт-Петербург</option>
-            </select>
-        </div>
-        <div id="map" class="map"></div>
+    <div class="footer-licence-number">
+        Номер медицинской лицензии: Л041-01148-78/00690667
+        <br>ООО «Лаборатория красоты»
     </div>
 
-    <div class="divider"></div>
+    <hr>
+
+    <div class="footer-privacy">
+        <p>Вся информация на сайте носит исключительно информационный характер и не является публичной офертой</p>
+        <div class="privacy-link">
+            <a href="{% url 'soglasie' %}">Политика конфиденциальности</a>
+            <a href="{% url 'med-rules' %}">О правилах предоставления платных медицинских услуг</a>
+    </div>
+    </div>
+
+    <hr>
 
     <div class="footer-social">
         <a href="https://t.me/+zV5lQTquKdQ5YTAy" class="social-icon"><img src="../static/siteProlab/img/telegram-social.svg" alt="Telegram"></a>
@@ -120,5 +125,4 @@
 <script src="../static/siteProlab/js/script.js"></script>
 <script src="../static/siteProlab/js/services.js"></script>
 <script src="../static/siteProlab/js/questions.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAah5f5wO-osD0C5lgfyjlYrrSdIVrpE6Q&callback=initMap" async defer></script>
 </html>

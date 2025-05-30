@@ -93,3 +93,11 @@ def register(request):
     else:
         form = UserCreationForm()
     return render(request, 'registration/register.html', {'form': form})
+
+
+def privacy_policy(request):
+    return render(request, 'siteProlab/soglasie.html')
+
+
+def privacy_med_rules(request):
+    return render(request, 'siteProlab/med-rules.html')

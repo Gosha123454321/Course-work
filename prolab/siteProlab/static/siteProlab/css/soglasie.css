@@ -1,0 +1,41 @@
+.privacy-container {
+    max-width: 90%;
+    margin: 40px auto;
+    padding: 0 20px;
+    color: #333;
+    line-height: 1.6;
+    font-size: 20px;
+}
+
+.privacy-container h1 {
+    font-size: 26px;
+    color: #E787B5;
+    margin-bottom: 2px;
+    text-align: center;
+}
+
+.rules {
+    font-size: 18px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.rules a {
+    color: #ED97B3;
+    text-decoration: none;
+}
+
+b {
+    font-weight: bolder;
+}
+
+.privacy-content {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.rules p {
+    text-align: right;
+}
