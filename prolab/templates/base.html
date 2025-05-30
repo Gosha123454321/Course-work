@@ -52,7 +52,7 @@
                     <a href="{% url 'questions' %}">Вопросы</a>
                 </nav>
                 {% if user.is_authenticated %}
-                    <a href="#" class="signup-button">Запись</a>
+                    <button class="signup-button" id="open-yclients-modal">Запись</button>
                 {% endif %}
             </div>
         </div>
@@ -74,8 +74,15 @@
             <a href="{% url 'masters' %}">Мастера</a>
             <a href="{% url 'questions' %}">Вопросы</a>
             {% if user.is_authenticated %}
-                <a href="#" class="signup-button">Запись</a>
+                <a href="https://b1043254.yclients.com/select-city?o=" class="signup-button">Запись</a>
             {% endif %}
+        </div>
+
+        <div class="modal-overlay" id="yclients-modal">
+            <div class="modal-content_crm">
+                <button class="close-modal" id="close-yclients-modal">&times;</button>
+                <iframe src="https://b1043254.yclients.com/select-city?o=" class="yclients-frame"></iframe>
+            </div>
         </div>
     </header>
     {% block content %}{% endblock %}
