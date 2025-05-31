@@ -422,14 +422,9 @@ body {
         font-size: 12px;
     }
 
-    .city-selector select {
-        font-size: 12px;
-        padding: 8px;
-    }
-
-    .map {
-        height: 200px;
-    }
+    .privacy-link a {
+        font-size: 0.9rem;
+}
 
     .social-icon img {
         width: 30px;

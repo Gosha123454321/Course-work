@@ -28,6 +28,11 @@
                 </div>
                 {% endfor %}
 
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="privacy_policy" name="privacy_policy" required>
+                    <label for="privacy_policy">Я согласен с <a href="{% url 'soglasie' %}" target="_blank">политикой конфиденциальности</a></label>
+                </div>
+
                 <button type="submit" class="btn-submit">Зарегистрироваться</button>
             </form>
             <p>Уже есть аккаунт? <a href="{% url 'login' %}">Войти</a></p>
